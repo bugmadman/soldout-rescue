@@ -4,19 +4,34 @@ A mobile tool that shows reps today's sold-out deals with a call / don't-call re
 
 Status: skeleton, historical estimates (2.1–2.3), the routing switch (5.1–5.3), the holdout assignment and the suppression list export (6.1, 6.4) are done. A reduced rep page runs on the CSV data pack (3.1, 3.3, 3.4): open `http://localhost:8080/` after `make upd`, with the data pack in `docs/data-pack/` (or `DATA_PACK_DIR` in `.env.local`). The text analysis, the full money model and the holdout read-out are not done. This file is a stub and will be filled in later (how to run, where AI is used).
 
+Live: <https://soldout.madbugs.dev> (behind HTTP Basic auth).
+
+## Caveats
+
+The job had a hard limit of 3 hours, and this is what that means for the result:
+
+- **Little time to check the code.** The owner checked the result of each step, not the code line by line (see "Review status").
+- **No CI/CD.** Checks run by hand with `make lint`; nothing runs on push and nothing deploys automatically.
+- **The sandbox endpoints are not mocked as they should be.** Tests run from invented fixtures through a CSV adapter and fakes, not against mocked HTTP endpoints that behave like the real API (paging, rate limit, errors).
+- **No users.** One shared login for the whole tool; the tool does not know which rep is looking at it.
+- **No filters.** The list cannot be filtered or searched by merchant, region, size band or recommendation.
+- **Many more ideas than time.** More would be worth doing than fits in three hours; what was cut is below, and three hours is three hours.
+
 ## Cut list and limits
 
 Cut for time, with the reason; each is a known gap, not a hidden one.
 
 - **No functional test of the controller.** AGENTS.md asks for one with the service mocked; the page was checked by hand, and the service and the CSV adapter have unit tests.
-- **Basic auth over plain HTTP (3.6).** Every route asks for the login and password from `.env.local`, but the container serves HTTP without TLS, so the password is readable on the wire. Run it locally or behind an HTTPS proxy; the page shows real merchant names, cities and deal ids from the data pack.
+- **Basic auth is the only protection (3.6).** Every route asks for the login and password from `.env.local`. The live site is served over HTTPS, but the container itself speaks plain HTTP, so a local run (`http://localhost:8080/`) sends the password in the clear. The page shows real merchant names, cities and deal ids from the data pack.
 - **No detail view (part of 3.4).** The page is a list only: no per-merchant evidence screen.
 - **Refund risk is not in the formula.** The net value of a call is the historical GP difference per size band minus rep time (12 minutes at £20 an hour, £4). The refund-risk term from NOTES.md is not subtracted.
 - **Estimates are per size band, not per merchant.** Every card of one band shows the same amount. The numbers are observational, not a causal effect; the holdout is meant to replace them.
 - **No HTTP adapter for the sandbox (part of 3.1).** The tool reads the CSV data pack only.
-- **Recommendations are two-valued (`call`, `don't call`).** `automation_covers` and `other` from 3.2 are not built, and no text signals feed the rules because phase 4 (LLM text analysis, quote verification) was not started.
+- **Recommendations are two-valued (`call`, `don't call`).** `automation_covers` and `other` from 3.2 are not built, and no text signals feed the rules because phase 4 (LLM text analysis, quote verification) was not started. The consequence is a known miss: a merchant a rep pointed out (Wren Brow & Lash, York) has an active weekly auto-replenish schedule on both deals, yet the tool most likely still recommends a call, because schedules are read but not used in the recommendation.
 
-Not done at this point, so not claimed anywhere: the holdout read-out script (6.2), the full `ChaseValue` range (2.4), the data-trap handling and fixed-window estimates (2.5, 2.7), the yearly number for Dan (2.8, 2.9), the mark form (3.5), the phone-width screenshots (3.7), the change request for Greg (5.7), and the diff review by Hana (5.4, 5.6). Real merchant names must not go into screenshots that are committed.
+The routing change is code, not config. Wiring `suppress_soldout_tasks` into `plan.py` is a code change under the peak freeze, so it is January unless Greg signs it as an emergency; his written OK, and Hana's review of the diff, are both still missing and neither is claimed. The proposed stop rule is a number: 30 days after the switch goes on, switch it off if the listed deals earn more than £3 less 30-day GP per sold-out than the held-out ones (about two standard errors, from the data pack). That is a rough figure, and the read-out script that would compute it is not built.
+
+Not done at this point, so not claimed anywhere: the whole text analysis (phase 4: cleaning, LLM extraction, quote verification, signals in the rules), the holdout read-out script (6.2), the range and date of the real number for Dan (6.3), the full recommendation rules (3.2), the full `ChaseValue` range (2.4), the data-trap handling and fixed-window estimates (2.5, 2.7), the yearly number for Dan (2.8, 2.9), the mark form (3.5), the phone-width screenshots (3.7), the change request for Greg (5.7), and the diff review by Hana (5.4, 5.6). Real merchant names must not go into screenshots that are committed.
 
 ## Time spent
 
@@ -34,8 +49,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Phase 5 and 6, tasks 5.1–5.3 (routing switch and tests) and 6.1, 6.4 (holdout assignment and list export), each with a review by a second agent (about 36 minutes elapsed, of which the owner was away for 10; the owner's estimate of 25 minutes is recorded; start and end not recorded) | – | – | 10 | 25 |
 | Phase 3, tasks 3.1, 3.3, 3.4 (reduced): sandbox port with a CSV adapter, sold-out service with the net-value range, mobile page; each `[C]` task written by one agent and reviewed by another (the assistant's estimate of about 25 minutes; start and end not recorded) | – | – | – | 25 |
 | Phase 3, task 3.6: HTTP Basic auth on every route with the login and password from `.env.local`, written by one agent and reviewed by another, then the notes, the time log and the commit (the assistant's estimate; start and end not recorded) | – | – | – | 8 |
-| **Total used** | | | | **172 of 180** |
-| **Remaining** | | | | **8** |
+| Phase 7 and the colleagues' replies: the README caveats, the live URL, the cut list brought up to date, the checks against the data pack, the stop rule and the drafts to Greg and Dan (the owner's estimate of about 15 minutes, not counting the chat with colleagues; start and end not recorded) | – | – | – | 15 |
+| **Total used** | | | | **187 of 180** |
+| **Remaining** | | | | **-7 (over the budget)** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
