@@ -13,8 +13,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Setup: requirements saved to `docs/`, data pack and routing code reviewed, safety audit | 20:16 | 20:36 | – | 20 |
 | Repository: routing copied in, git initialised, remote added | 20:36 | 20:44 | – | 8 |
 | Process and plan: rules, workflow, agents, notes, phased plan, Bootstrap decision (time is the owner's estimate, start and end not recorded) | – | – | – | 15 |
-| **Total used** | | | | **43 of 180** |
-| **Remaining** | | | | **137** |
+| Plan audit: plan checked against the brief, carried-over wording removed, open questions listed, notes and plan updated (time is the owner's estimate, start and end not recorded) | – | – | – | 10 |
+| **Total used** | | | | **53 of 180** |
+| **Remaining** | | | | **127** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
