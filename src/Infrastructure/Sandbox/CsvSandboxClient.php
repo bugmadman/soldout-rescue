@@ -62,6 +62,18 @@ final readonly class CsvSandboxClient implements SandboxClientInterface
         ));
     }
 
+    public function latestSoldOutDate(): ?\DateTimeImmutable
+    {
+        $latest = null;
+        foreach ($this->csv->soldOuts($this->directory) as $soldOut) {
+            if ($latest === null || $soldOut->soldOutDate > $latest) {
+                $latest = $soldOut->soldOutDate;
+            }
+        }
+
+        return $latest;
+    }
+
     /**
      * @return array<string, Merchant>
      */

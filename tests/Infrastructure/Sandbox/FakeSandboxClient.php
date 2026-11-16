@@ -29,4 +29,16 @@ final readonly class FakeSandboxClient implements SandboxClientInterface
             static fn (SoldOutCase $case): bool => $case->soldOut->soldOutDate->format('Y-m-d') === $day,
         ));
     }
+
+    public function latestSoldOutDate(): ?\DateTimeImmutable
+    {
+        $latest = null;
+        foreach ($this->cases as $case) {
+            if ($latest === null || $case->soldOut->soldOutDate > $latest) {
+                $latest = $case->soldOut->soldOutDate;
+            }
+        }
+
+        return $latest;
+    }
 }

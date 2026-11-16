@@ -185,6 +185,30 @@ final class CsvSandboxClientTest extends TestCase
         $this->client($directory)->soldOutsOn(new \DateTimeImmutable('2025-09-01'));
     }
 
+    public function testLatestSoldOutDateIsTheMaximumInTheFile(): void
+    {
+        $latest = $this->client(DataPackDirectory::fromPath(self::FIXTURES))->latestSoldOutDate();
+
+        self::assertSame('2026-10-20', $latest?->format('Y-m-d'));
+    }
+
+    public function testLatestSoldOutDateDoesNotDependOnRowOrder(): void
+    {
+        $directory = $this->dataPack(
+            self::SOLD_OUTS_HEADER."SO-1,D1,M1,2025-09-03,,\nSO-2,D2,M1,2025-09-07,,\nSO-3,D3,M1,2025-09-01,,\n",
+            null,
+        );
+
+        self::assertSame('2025-09-07', $this->client($directory)->latestSoldOutDate()?->format('Y-m-d'));
+    }
+
+    public function testNoSoldOutsMeansNoLatestDate(): void
+    {
+        $directory = $this->dataPack(self::SOLD_OUTS_HEADER, null);
+
+        self::assertNull($this->client($directory)->latestSoldOutDate());
+    }
+
     private function client(DataPackDirectory $directory): CsvSandboxClient
     {
         return new CsvSandboxClient($directory);

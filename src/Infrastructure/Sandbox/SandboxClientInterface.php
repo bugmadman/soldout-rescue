@@ -9,4 +9,6 @@ use App\Domain\SoldOut\SoldOutCases;
 interface SandboxClientInterface
 {
     public function soldOutsOn(\DateTimeImmutable $date): SoldOutCases;
+
+    public function latestSoldOutDate(): ?\DateTimeImmutable;
 }

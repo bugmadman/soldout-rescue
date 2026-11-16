@@ -1,3 +1,9 @@
+parameters:
+    app.default_data_pack_dir: '%kernel.project_dir%/docs/data-pack'
+    app.data_pack_dir: '%env(default:app.default_data_pack_dir:DATA_PACK_DIR)%'
+    app.rep_minutes_per_task: 12
+    app.rep_rate_per_hour_pence: 2000
+
 services:
     _defaults:
         autowire: true
@@ -5,3 +11,12 @@ services:
 
     App\:
         resource: '../src/'
+
+    App\Infrastructure\DataPack\DataPackDirectory:
+        factory: ['App\Infrastructure\DataPack\DataPackDirectory', 'fromPath']
+        arguments: ['%app.data_pack_dir%']
+
+    App\Infrastructure\Sandbox\SandboxClientInterface: '@App\Infrastructure\Sandbox\CsvSandboxClient'
+
+    App\Domain\SoldOut\CallGainEstimates:
+        factory: ['@App\Infrastructure\Estimates\HistoricalEstimatesFile', 'callGainEstimates']
