@@ -29,7 +29,7 @@ Budget: 101 minutes remaining (180 total, 79 used; the time log in README.md is 
 
 ## Phase 2 — Money model (20 min)
 
-- [ ] [S] 2.1 Fixture CSVs (invented, tiny) for sold-outs, merchants, activities, schedules, merchant months
+- [x] [S] 2.1 Fixture CSVs (invented, tiny) for sold-outs, merchants, activities, schedules, merchant months
 - [ ] [C] 2.2 `Money` VO in pence with explicit rounding, tested
 - [ ] [C] 2.3 Historical estimates from the data pack (restock rate called vs. left alone by size band, GP after, refund rate), computed by a script, written to a small committed JSON of parameters, not the raw data
 - [ ] [C] 2.4 `ChaseValue` calculation: GP of a cap raise minus rep time minus refund risk, as a low / central / high range, all parameters named, tested on edge cases

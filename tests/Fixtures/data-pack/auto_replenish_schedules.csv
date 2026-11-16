@@ -1,0 +1,3 @@
+schedule_id,deal_id,merchant_id,start_date,end_date,cadence,top_up_qty,created_by
+AR-90001,D90001-2,M90001,2025-08-01,,weekly,5,merchant_ops
+AR-90002,D90002-1,M90002,2025-07-01,2025-08-31,monthly,10,merchant_ops

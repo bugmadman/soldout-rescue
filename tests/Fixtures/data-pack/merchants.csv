@@ -1,0 +1,5 @@
+merchant_id,merchant_name,category,region,city,size_band,rep_id,joined,do_not_contact
+M90001,Fixture Spa,Health & Beauty,North,Leeds,A,R90,2020-01-01,0
+M90002,Fixture Nails,Health & Beauty,North,York,B,R90,2021-06-01,0
+M90003,Fixture Gym,Health & Beauty,South,Bristol,C,R91,2022-03-01,1
+M90004,Fixture Cafe,Food & Drink,South,Bath,D,R91,2023-09-01,0

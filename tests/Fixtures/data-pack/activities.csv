@@ -1,0 +1,6 @@
+activity_id,merchant_id,sold_out_id,activity_date,type,owner_id,duration_s,subject
+A-900001,M90001,SO-900001,2025-09-02,call,R90,300,Restock call
+A-900002,M90001,SO-900001,2025-09-02,call,R90,300,Restock call
+A-900003,M90002,SO-900003,2025-09-03,call,,240,Restock call
+A-900004,M90004,,2026-02-10,note,SYS01,,Migrated record
+A-900005,M90003,SO-900004,2025-09-05,email,R91,,Follow up
