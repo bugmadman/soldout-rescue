@@ -7,12 +7,14 @@ namespace App\Tests\Infrastructure\DataPack;
 use App\Domain\Money\ActivityType;
 use App\Domain\Money\SizeBand;
 use App\Infrastructure\DataPack\CsvDataPackReader;
+use App\Infrastructure\DataPack\DataPackCsv;
 use App\Infrastructure\DataPack\DataPackDirectory;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(CsvDataPackReader::class)]
+#[CoversClass(DataPackCsv::class)]
 #[CoversClass(DataPackDirectory::class)]
 final class CsvDataPackReaderTest extends TestCase
 {
