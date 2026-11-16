@@ -2,7 +2,21 @@
 
 A mobile tool that shows reps today's sold-out deals with a call / don't-call recommendation and an amount in £. Money is computed in code, free text is read by an LLM with quotes, and a safe switch is added to the routing service. The effect is proven with a holdout.
 
-Status: skeleton done, money model in progress (tasks 2.1–2.3 written). This file is a stub and will be filled in later (how to run, what was decided, what it can't do, what was cut and why, where AI is used).
+Status: skeleton, historical estimates (2.1–2.3), the routing switch (5.1–5.3), the holdout assignment and the suppression list export (6.1, 6.4) are done. A reduced rep page runs on the CSV data pack (3.1, 3.3, 3.4): open `http://localhost:8080/` after `make upd`, with the data pack in `docs/data-pack/` (or `DATA_PACK_DIR` in `.env.local`). The text analysis, the full money model and the holdout read-out are not done. This file is a stub and will be filled in later (how to run, where AI is used).
+
+## Cut list and limits
+
+Cut for time, with the reason; each is a known gap, not a hidden one.
+
+- **No functional test of the controller.** AGENTS.md asks for one with the service mocked; the page was checked by hand, and the service and the CSV adapter have unit tests.
+- **No access-token check (3.6).** The page is open to anyone who can reach the address and shows real merchant names, cities and deal ids from the data pack. Run it only locally; do not expose the port.
+- **No detail view (part of 3.4).** The page is a list only: no per-merchant evidence screen.
+- **Refund risk is not in the formula.** The net value of a call is the historical GP difference per size band minus rep time (12 minutes at £20 an hour, £4). The refund-risk term from NOTES.md is not subtracted.
+- **Estimates are per size band, not per merchant.** Every card of one band shows the same amount. The numbers are observational, not a causal effect; the holdout is meant to replace them.
+- **No HTTP adapter for the sandbox (part of 3.1).** The tool reads the CSV data pack only.
+- **Recommendations are two-valued (`call`, `don't call`).** `automation_covers` and `other` from 3.2 are not built, and no text signals feed the rules because phase 4 (LLM text analysis, quote verification) was not started.
+
+Not done at this point, so not claimed anywhere: the holdout read-out script (6.2), the full `ChaseValue` range (2.4), the data-trap handling and fixed-window estimates (2.5, 2.7), the yearly number for Dan (2.8, 2.9), the mark form (3.5), the phone-width screenshots (3.7), the change request for Greg (5.7), and the diff review by Hana (5.4, 5.6). Real merchant names must not go into screenshots that are committed.
 
 ## Time spent
 
@@ -18,8 +32,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Phase 2, money model so far: fixtures, `Money` value object, historical estimates, each with a review by a second agent (time is the owner's estimate of 30–35 minutes, 33 recorded; start and end not recorded; tasks 2.4–2.6 remain) | – | – | – | 33 |
 | Phase 5, task 5.9: one message to Hana asking for a diff-review slot, drafted and sent by the owner (time is the owner's estimate, start and end not recorded) | – | – | – | 2 |
 | Phase 5 and 6, tasks 5.1–5.3 (routing switch and tests) and 6.1, 6.4 (holdout assignment and list export), each with a review by a second agent (about 36 minutes elapsed, of which the owner was away for 10; the owner's estimate of 25 minutes is recorded; start and end not recorded) | – | – | 10 | 25 |
-| **Total used** | | | | **139 of 180** |
-| **Remaining** | | | | **41** |
+| Phase 3, tasks 3.1, 3.3, 3.4 (reduced): sandbox port with a CSV adapter, sold-out service with the net-value range, mobile page; each `[C]` task written by one agent and reviewed by another (the assistant's estimate of about 25 minutes; start and end not recorded) | – | – | – | 25 |
+| **Total used** | | | | **164 of 180** |
+| **Remaining** | | | | **16** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
