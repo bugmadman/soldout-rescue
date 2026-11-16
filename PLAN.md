@@ -2,7 +2,7 @@
 
 Source: [NOTES.md](NOTES.md). Tasks are done in phase order, within a phase — top to bottom, unless a phase heading or "Next steps" says otherwise. Mark `[x]` as they get done. `3.2` is the task's stable number (gaps in the numbering are tasks that were never made); ` — reviewed` marks a task whose code the owner has reviewed (see WORKFLOW.md). `[S]`/`[C]` is the task's tier (simple/complex), see CLAUDE.md, "Model selection". Each phase has a minute budget; the time log is in README.md.
 
-Budget: 68 minutes remained at the last time-log entry (180 total, 112 used; the time log in README.md is the record, update it before planning). Phase 1 took 26 of 15 minutes; phase 2 so far 33 of 20 (tasks 2.1–2.3 done). Phases 2–7 plan far more than the remaining time, and the tasks added since (2.7–2.9, 5.7–5.9, the rewritten 6.1 and 6.4) add more: what is cut is decided first thing in the next session, by the cut order in NOTES.md.
+Budget: 66 minutes remained at the last time-log entry (180 total, 114 used; the time log in README.md is the record, update it before planning). Phase 1 took 26 of 15 minutes; phase 2 so far 33 of 20 (tasks 2.1–2.3 done). Phases 2–7 plan far more than the remaining time, and the tasks added since (2.7–2.9, 5.7–5.9, the rewritten 6.1 and 6.4) add more: what is cut is decided first thing in the next session, by the cut order in NOTES.md.
 
 ## Next steps
 
@@ -57,7 +57,7 @@ Moved forward so that the change can reach Greg: Friday's gate takes only what h
 - [ ] [S] 5.6 Diff sent to Hana for review once a slot is agreed (5.9); she reads code and offers a 15-minute pairing. Greg's written OK is recorded when it comes, never assumed
 - [ ] [S] 5.7 One-page change request for Greg, by Thursday morning for Friday's gate (and before today's 15:00 review if a Hana-reviewed diff exists), not claiming that Hana has seen it before she has: the change, risk, rollback, when to stop. It says: the suppression file is keyed by `deal_id` and is config under the freeze, and the list is static until 7 January (a change is a signed emergency); the two halves, deals covered by automation (accepted in principle) and "call isn't wanted" (he judges on the page; automation half only if the text analysis is not ready), with a `reason` per row so the second half can be struck; whether the switch goes on before Monday or stays off until 7 January. Sent to Greg in chat as well, the Submit panel does not deliver it to him
 - [x] [S] 5.8 Greg's question answered: the change in one sentence sent to him at 11:34; he counts it as discussed for Friday and asked for the page by Thursday morning
-- [ ] [S] 5.9 Ask Hana for a slot to review the diff before Thursday morning (Greg's condition; her Wednesday window until 10:30 has passed); never claim she has seen it before she has
+- [x] [S] 5.9 Ask Hana for a slot to review the diff before Thursday morning (Greg's condition; her Wednesday window until 10:30 has passed); never claim she has seen it before she has
 
 ## Phase 2 — Money model (20 min)
 

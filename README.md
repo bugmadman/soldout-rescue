@@ -16,8 +16,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Plan audit: plan checked against the brief, carried-over wording removed, open questions listed, notes and plan updated (time is the owner's estimate, start and end not recorded) | – | – | – | 10 |
 | Phase 1, skeleton: Docker, Makefile, Symfony 7.4 with FrankenPHP worker mode, PHPUnit, PHPStan, PHP-CS-Fixer, check from a clean clone (start is estimated from the last commit; the break is the owner's estimate) | 2026-11-16 13:15 | 2026-11-16 13:43 | 2 | 26 |
 | Phase 2, money model so far: fixtures, `Money` value object, historical estimates, each with a review by a second agent (time is the owner's estimate of 30–35 minutes, 33 recorded; start and end not recorded; tasks 2.4–2.6 remain) | – | – | – | 33 |
-| **Total used** | | | | **112 of 180** |
-| **Remaining** | | | | **68** |
+| Phase 5, task 5.9: one message to Hana asking for a diff-review slot, drafted and sent by the owner (time is the owner's estimate, start and end not recorded) | – | – | – | 2 |
+| **Total used** | | | | **114 of 180** |
+| **Remaining** | | | | **66** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
