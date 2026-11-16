@@ -113,7 +113,7 @@ Facts as said in chat; the decisions that follow are in the sections above.
 ## Open questions
 
 - Does the switch go on before Monday, or stay off until 7 January? Turning it on is itself a config change under the freeze. It goes into the change request (PLAN 5.7), and the date of the real number depends on it.
-- `env_overrides.json`: keep, remove or fix? Hana did not answer; ask it with the diff (PLAN 5.4).
+- `env_overrides.json`: keep, remove or fix? Hana did not answer; ask it with the diff (PLAN 5.4). Proposal, not yet decided: leave the file untouched in this change (it is Merchant Ops' config under the freeze, has no `routing` block, and only shifts `expected_gp`, not the order), ask Hana one question with the diff, name it in the page for Greg. 5.4 waits for her answer.
 - Is the "call isn't wanted" half of the list ready for Friday's gate, or does the list go as the automation half only? Decided when phase 4 shows what it can deliver (PLAN 6.4).
 - Did the early-2026 CRM migration leave anything strange, and does the sandbox API show a non-rep `owner_id`? Nobody knows; check the rows around the migration and a small sample of merchants through `GET /activities?merchant_id=` (PLAN 2.5). Ask Sales Ops only if non-rep owners turn up.
 - Activity dedupe key: the date plus the other fields, checked by activity type before relying on it (PLAN 2.5).

@@ -2,7 +2,7 @@
 
 Source: [NOTES.md](NOTES.md). Tasks are done in phase order, within a phase — top to bottom, unless a phase heading or "Next steps" says otherwise. Mark `[x]` as they get done. `3.2` is the task's stable number (gaps in the numbering are tasks that were never made); ` — reviewed` marks a task whose code the owner has reviewed (see WORKFLOW.md). `[S]`/`[C]` is the task's tier (simple/complex), see CLAUDE.md, "Model selection". Each phase has a minute budget; the time log is in README.md.
 
-Budget: 66 minutes remained at the last time-log entry (180 total, 114 used; the time log in README.md is the record, update it before planning). Phase 1 took 26 of 15 minutes; phase 2 so far 33 of 20 (tasks 2.1–2.3 done). Phases 2–7 plan far more than the remaining time, and the tasks added since (2.7–2.9, 5.7–5.9, the rewritten 6.1 and 6.4) add more: what is cut is decided first thing in the next session, by the cut order in NOTES.md.
+Budget: 41 minutes remained at the last time-log entry (180 total, 139 used; the time log in README.md is the record, update it before planning). Phase 1 took 26 of 15 minutes; phase 2 so far 33 of 20 (tasks 2.1–2.3 done). Phases 2–7 plan far more than the remaining time, and the tasks added since (2.7–2.9, 5.7–5.9, the rewritten 6.1 and 6.4) add more: what is cut is decided first thing in the next session, by the cut order in NOTES.md.
 
 ## Next steps
 
