@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="h4 mb-1">Sold-outs{% if date %} on {{ date|date('j M Y') }}{% endif %}</h1>
+    <p class="text-secondary small mb-3">
+        {{ items|length }} sold-out{{ items|length == 1 ? '' : 's' }}, calls first, by expected net value of a call.
+        Ranges are a model estimate from history, not a measured effect: the holdout will replace them.
+    </p>
+
+    {% for item in items %}
+        {% set case = item.case %}
+        {% set isCall = item.recommendation.value == 'call' %}
+        <div class="card mb-2 {{ isCall ? 'border-success' : '' }}">
+            <div class="card-body py-2">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="fw-semibold">{{ case.merchantName }}</div>
+                        <div class="text-secondary small">
+                            {{ case.city }} · band {{ case.merchant.sizeBand.value }} · {{ case.soldOut.dealId }}
+                        </div>
+                    </div>
+                    <span class="badge {{ isCall ? 'text-bg-success' : 'text-bg-secondary' }}">
+                        {{ item.recommendation.label }}
+                    </span>
+                </div>
+                {% if item.hasNetValue %}
+                    <div class="mt-2">
+                        <span class="fs-5 fw-semibold">{{ item.netCentral.format }}</span>
+                        <span class="text-secondary small">
+                            ({{ item.netLow.format }} to {{ item.netHigh.format }}) net per call
+                        </span>
+                    </div>
+                {% endif %}
+                <div class="small mt-1">{{ item.reason }}</div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-light">No sold-outs for this date.</div>
+    {% endfor %}
+{% endblock %}
