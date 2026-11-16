@@ -4,8 +4,9 @@ PHP = $(COMPOSE) exec php
 .PHONY: init upd updb down in cs fix stan test lint
 
 init: .env.local
-	$(COMPOSE) up -d --build --wait
-	@if [ -f composer.json ]; then $(PHP) composer install; fi
+	$(COMPOSE) build
+	$(COMPOSE) run --rm --no-deps php composer install
+	$(COMPOSE) up -d --wait
 
 .env.local:
 	printf 'UID=%s\n' "$$(id -u)" > .env.local

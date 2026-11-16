@@ -12,7 +12,7 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 
 ## Time
 
-- Total budget 180 minutes of active working time; 53 used through the plan audit, 127 remaining. Minute budgets per phase are in PLAN.md. The time table in README.md is the single record.
+- Total budget 180 minutes of active working time; 79 used through phase 1, 101 remaining. Minute budgets per phase are in PLAN.md. The time table in README.md is the single record.
 - Two deadlines from the brief: 48 hours from first opening the Desk, and Thursday 09:00 on the team's clock. The team's day and time come from `GET /me`, not from the real calendar.
 - Cut order when behind (first cut goes first): hosting a public link; the merchant-mark mirror in the DB; text sources other than rep notes and Deal Alert replies; the quality of the tool's styling.
 - Never cut: money in code with tests; quote verification; the routing switch with tests and rollback; the holdout read-out script; the README cut list; the three lines for Dan and the change request for Greg.
@@ -94,5 +94,5 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - Open: did the early-2026 CRM migration leave anything strange, and what is an `owner_id` that is not a rep? Ask Priya and Hana.
 - Open: host the tool behind a link, or hand in the one-command run and screenshots?
 - Open: which model and how many merchants for the LLM run (about a cent per merchant on Sonnet, USD 20 in total); decided at PLAN 4.2.
-- Open: phases 1–7 plan 135 minutes against 127 remaining. What is cut to cover the 8 minutes?
+- Open: phases 2–7 plan 120 minutes against 101 remaining. What is cut to cover the 19 minutes?
 - Open: Renee covers only North H&B. Is a second rep (Marcus?) asked about another book?

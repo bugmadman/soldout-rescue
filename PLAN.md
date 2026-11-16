@@ -2,7 +2,7 @@
 
 Source: [NOTES.md](NOTES.md). Tasks are done in phase order, within a phase — top to bottom. Mark `[x]` as they get done. `3.2` is the task's stable number; ` — reviewed` marks a task whose code the owner has reviewed (see WORKFLOW.md). `[S]`/`[C]` is the task's tier (simple/complex), see CLAUDE.md, "Model selection". Each phase has a minute budget; the time log is in README.md.
 
-Budget: 127 minutes remaining (180 total, 53 used; the time log in README.md is the record). Phases 1–7 plan 135: 8 minutes over, to be cut by the cut order in NOTES.md.
+Budget: 101 minutes remaining (180 total, 79 used; the time log in README.md is the record). Phase 1 took 26 of 15 minutes. Phases 2–7 plan 120: 19 minutes over, to be cut by the cut order in NOTES.md.
 
 ## Architecture (brief)
 
@@ -25,7 +25,7 @@ Budget: 127 minutes remaining (180 total, 53 used; the time log in README.md is 
 - [x] [S] 1.3 `Makefile`: `init`, `upd`, `updb`, `down`, `in`, `cs`, `fix`, `stan`, `test`, `lint`; `.env.local` created with the host UID
 - [x] [S] 1.4 Symfony 7.4 skeleton created inside the container, FrankenPHP worker mode on
 - [x] [S] 1.5 PHPUnit, PHPStan with strict rules, PHP-CS-Fixer (strict types, final, 120 columns by hand); one smoke test green
-- [ ] [S] 1.6 Verify: `make init` from a clean state, the start page opens, `make lint` passes
+- [x] [S] 1.6 Verify: `make init` from a clean state, the start page opens, `make lint` passes
 
 ## Phase 2 — Money model (20 min)
 
