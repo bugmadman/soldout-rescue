@@ -20,7 +20,7 @@ Budget: 127 minutes remaining (180 total, 53 used; the time log in README.md is 
 
 ## Phase 1 — Skeleton (15 min)
 
-- [ ] [S] 1.1 `.gitignore`: stop ignoring `.env`, ignore `.env.local`, `var/`, `vendor/`; `.env` holds defaults only, no key
+- [x] [S] 1.1 `.gitignore`: stop ignoring `.env`, ignore `.env.local`, `var/`, `vendor/`; `.env` holds defaults only, no key
 - [ ] [S] 1.2 `.docker/php/` (Dockerfile, Caddyfile, php.ini) and `compose.yaml` + `compose.override.yaml` with PostgreSQL 18, FrankenPHP image
 - [ ] [S] 1.3 `Makefile`: `init`, `upd`, `updb`, `down`, `in`, `cs`, `fix`, `stan`, `test`, `lint`; `.env.local` created with the host UID
 - [ ] [S] 1.4 Symfony 7.4 skeleton created inside the container, FrankenPHP worker mode on

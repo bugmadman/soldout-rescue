@@ -1,4 +1,7 @@
 docs/
 .DS_Store
 .idea/
-.env
+.env.local
+.env.*.local
+var/
+vendor/
