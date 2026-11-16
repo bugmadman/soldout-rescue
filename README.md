@@ -6,17 +6,18 @@ Status: setup only. Nothing is built yet. This file is a stub and will be filled
 
 ## Time spent
 
-Budget: 3 hours of work. Clock time, one timezone (CET), updated at each check.
+Budget: 3 hours of work. Active working time, timestamps in CET, updated at each check.
 
-| Phase | Start | End | Minutes |
-|---|---|---|---|
-| Setup: requirements saved to `docs/`, data pack and routing code reviewed, safety audit | 20:16 | 20:36 | 20 |
-| Repository: routing copied in, git initialised, remote added | 20:36 | 20:44 | 8 |
-| **Total used** | | | **28 of 180** |
-| **Remaining** | | | **152** |
+| Phase | Start (date, time) | End (date, time) | Breaks | Minutes |
+|---|---|---|---|---|
+| Setup: requirements saved to `docs/`, data pack and routing code reviewed, safety audit | 20:16 | 20:36 | – | 20 |
+| Repository: routing copied in, git initialised, remote added | 20:36 | 20:44 | – | 8 |
+| Process and plan: rules, workflow, agents, notes, phased plan, Bootstrap decision (time is the owner's estimate, start and end not recorded) | – | – | – | 15 |
+| **Total used** | | | | **43 of 180** |
+| **Remaining** | | | | **137** |
 
 Notes:
-- Time is wall clock from the first message, so it includes waiting for pasted material.
+- Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
 - The log of the whole conversation is in [`session/`](session/).
 
 ## Structure
@@ -24,6 +25,11 @@ Notes:
 ```
 .
 ├── README.md        this file
+├── AGENTS.md        project rules
+├── WORKFLOW.md      working method, time boxing, commits
+├── NOTES.md         decisions, cuts, inbox
+├── PLAN.md          phased task list with minute budgets
+├── .claude/agents/  developer and reviewer agents
 ├── session/         conversation logs, one file per session
 ├── routing/         routing service, to get the sold-out switch
 └── ...              rep tool, money code, text analysis, holdout script (to be added)
