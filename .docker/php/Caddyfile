@@ -9,6 +9,9 @@
 	encode zstd gzip
 
 	php_server {
-		worker /app/public/index.php
+		worker {
+			file /app/public/index.php
+			num 2
+		}
 	}
 }

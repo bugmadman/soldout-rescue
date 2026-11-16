@@ -23,7 +23,7 @@ Budget: 127 minutes remaining (180 total, 53 used; the time log in README.md is 
 - [x] [S] 1.1 `.gitignore`: stop ignoring `.env`, ignore `.env.local`, `var/`, `vendor/`; `.env` holds defaults only, no key
 - [x] [S] 1.2 `.docker/php/` (Dockerfile, Caddyfile, php.ini) and `compose.yaml` + `compose.override.yaml` with PostgreSQL 18, FrankenPHP image
 - [x] [S] 1.3 `Makefile`: `init`, `upd`, `updb`, `down`, `in`, `cs`, `fix`, `stan`, `test`, `lint`; `.env.local` created with the host UID
-- [ ] [S] 1.4 Symfony 7.4 skeleton created inside the container, FrankenPHP worker mode on
+- [x] [S] 1.4 Symfony 7.4 skeleton created inside the container, FrankenPHP worker mode on
 - [ ] [S] 1.5 PHPUnit, PHPStan with strict rules, PHP-CS-Fixer (strict types, final, 120 columns by hand); one smoke test green
 - [ ] [S] 1.6 Verify: `make init` from a clean state, the start page opens, `make lint` passes
 
