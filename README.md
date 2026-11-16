@@ -22,6 +22,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
 - The log of the whole conversation is in [`session/`](session/).
+- The table does not include the discussions with colleagues and the working out of who wants what and how (reading the answers of Priya, Hana, Greg, Dan and Renee and deciding what follows from them). The owner did not log that time while it happened, because it is not development time.
+
+PS. A softer point about the time log: the time spent writing the instructions for the AI tools (rules, workflow, agents, notes, plan) is counted in the table above, 25 minutes in all. The owner would lean towards not counting it either, but it can be argued both ways. It is work, and instructions prepared over three hours would give better code than instructions written in twenty minutes, which would favour whoever spends more time on them. The table is left as it is, and a reader who disagrees can subtract the 25 minutes.
 
 ## Structure
 
