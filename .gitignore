@@ -15,3 +15,12 @@ vendor/
 /phpunit.xml
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+__pycache__/
+*.pyc
+
+# Holdout run artefacts: they hold the salt and real deal ids
+/holdout/salt.txt
+/holdout/*.params.json
+/holdout/assignment_params.json
+/holdout/*.csv

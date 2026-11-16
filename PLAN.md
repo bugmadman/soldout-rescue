@@ -98,7 +98,7 @@ Order within the phase: 2.5, 2.7, 2.9, 2.8, then 2.4.
 
 6.1 and 6.4 come right after 5.1–5.3: the list that passes Friday's gate is the list until 7 January (Greg).
 
-- [ ] [C] 6.1 Deterministic assignment (salted hash of the `deal_id`) at the deal level, done once before the list is built and written before outcomes, tested
+- [x] [C] 6.1 Deterministic assignment (salted hash of the `deal_id`) at the deal level, done once before the list is built and written before outcomes, tested
 - [ ] [S] 6.4 Export of the static suppression list for Friday's gate: deals with an active auto-replenish schedule (a snapshot on the export date) and, as separate rows by `reason`, deals where a call is not wanted (only if the text analysis is ready, otherwise the automation half alone); keyed by `deal_id`, mapped from the sold-out id; the held-out deals are left out of the list and keep their tasks; runnable offline from files; first check how often one deal sells out
 - [ ] [C] 6.2 Offline read-out script: two files in, GP difference with a bootstrap interval out; fixtures and tests
 - [ ] [S] 6.3 The range for Dan and the date of the real number, from the model, the team's clock and the freeze calendar: one date if the switch goes on before the freeze, one if after 7 January
