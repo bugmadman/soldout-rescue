@@ -1,0 +1,402 @@
+{
+    "bands": {
+        "A": {
+            "all": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 4449,
+                        "high": 4596,
+                        "low": 4302,
+                        "n": 6523,
+                        "se": 75
+                    },
+                    "restock_rate": {
+                        "central": "0.6243",
+                        "high": "0.6357",
+                        "low": "0.6128",
+                        "n": 6864,
+                        "se": "0.0058"
+                    },
+                    "sold_outs": 6864
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 496,
+                    "high": 692,
+                    "low": 299,
+                    "se": 100
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 3953,
+                        "high": 4083,
+                        "low": 3823,
+                        "n": 6420,
+                        "se": 66
+                    },
+                    "restock_rate": {
+                        "central": "0.7935",
+                        "high": "0.8031",
+                        "low": "0.7839",
+                        "n": 6818,
+                        "se": "0.0049"
+                    },
+                    "sold_outs": 6818
+                }
+            },
+            "refund_rate": {
+                "central": "0.0938",
+                "high": "0.0994",
+                "low": "0.0881",
+                "n": 5490,
+                "se": "0.0029"
+            },
+            "unconfounded": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 4086,
+                        "high": 4321,
+                        "low": 3850,
+                        "n": 2363,
+                        "se": 120
+                    },
+                    "restock_rate": {
+                        "central": "0.5545",
+                        "high": "0.5742",
+                        "low": "0.5348",
+                        "n": 2440,
+                        "se": "0.0101"
+                    },
+                    "sold_outs": 2440
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 787,
+                    "high": 1102,
+                    "low": 472,
+                    "se": 161
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 3299,
+                        "high": 3508,
+                        "low": 3090,
+                        "n": 2063,
+                        "se": 107
+                    },
+                    "restock_rate": {
+                        "central": "0.7602",
+                        "high": "0.7784",
+                        "low": "0.7421",
+                        "n": 2127,
+                        "se": "0.0093"
+                    },
+                    "sold_outs": 2127
+                }
+            }
+        },
+        "B": {
+            "all": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 2338,
+                        "high": 2424,
+                        "low": 2253,
+                        "n": 5293,
+                        "se": 44
+                    },
+                    "restock_rate": {
+                        "central": "0.5613",
+                        "high": "0.5743",
+                        "low": "0.5482",
+                        "n": 5557,
+                        "se": "0.0067"
+                    },
+                    "sold_outs": 5557
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 208,
+                    "high": 314,
+                    "low": 104,
+                    "se": 54
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 2130,
+                        "high": 2191,
+                        "low": 2069,
+                        "n": 7676,
+                        "se": 31
+                    },
+                    "restock_rate": {
+                        "central": "0.6487",
+                        "high": "0.6591",
+                        "low": "0.6383",
+                        "n": 8161,
+                        "se": "0.0053"
+                    },
+                    "sold_outs": 8161
+                }
+            },
+            "refund_rate": {
+                "central": "0.0691",
+                "high": "0.0709",
+                "low": "0.0673",
+                "n": 10944,
+                "se": "0.0009"
+            },
+            "unconfounded": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 2100,
+                        "high": 2245,
+                        "low": 1955,
+                        "n": 1853,
+                        "se": 74
+                    },
+                    "restock_rate": {
+                        "central": "0.4747",
+                        "high": "0.4972",
+                        "low": "0.4522",
+                        "n": 1896,
+                        "se": "0.0115"
+                    },
+                    "sold_outs": 1896
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 318,
+                    "high": 506,
+                    "low": 130,
+                    "se": 96
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 1782,
+                        "high": 1901,
+                        "low": 1662,
+                        "n": 2108,
+                        "se": 61
+                    },
+                    "restock_rate": {
+                        "central": "0.5198",
+                        "high": "0.5408",
+                        "low": "0.4988",
+                        "n": 2170,
+                        "se": "0.0107"
+                    },
+                    "sold_outs": 2170
+                }
+            }
+        },
+        "C": {
+            "all": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 1365,
+                        "high": 1434,
+                        "low": 1296,
+                        "n": 2827,
+                        "se": 35
+                    },
+                    "restock_rate": {
+                        "central": "0.5739",
+                        "high": "0.5917",
+                        "low": "0.5562",
+                        "n": 2983,
+                        "se": "0.0091"
+                    },
+                    "sold_outs": 2983
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 30,
+                    "high": 111,
+                    "low": -51,
+                    "se": 41
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 1335,
+                        "high": 1377,
+                        "low": 1293,
+                        "n": 7221,
+                        "se": 22
+                    },
+                    "restock_rate": {
+                        "central": "0.6186",
+                        "high": "0.6295",
+                        "low": "0.6077",
+                        "n": 7651,
+                        "se": "0.0056"
+                    },
+                    "sold_outs": 7651
+                }
+            },
+            "refund_rate": {
+                "central": "0.0619",
+                "high": "0.0626",
+                "low": "0.0613",
+                "n": 16542,
+                "se": "0.0003"
+            },
+            "unconfounded": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 1237,
+                        "high": 1374,
+                        "low": 1100,
+                        "n": 833,
+                        "se": 70
+                    },
+                    "restock_rate": {
+                        "central": "0.4455",
+                        "high": "0.4788",
+                        "low": "0.4121",
+                        "n": 853,
+                        "se": "0.0170"
+                    },
+                    "sold_outs": 853
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 142,
+                    "high": 304,
+                    "low": -19,
+                    "se": 83
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 1095,
+                        "high": 1181,
+                        "low": 1009,
+                        "n": 1908,
+                        "se": 44
+                    },
+                    "restock_rate": {
+                        "central": "0.4120",
+                        "high": "0.4337",
+                        "low": "0.3902",
+                        "n": 1971,
+                        "se": "0.0111"
+                    },
+                    "sold_outs": 1971
+                }
+            }
+        },
+        "D": {
+            "all": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 748,
+                        "high": 797,
+                        "low": 698,
+                        "n": 1424,
+                        "se": 25
+                    },
+                    "restock_rate": {
+                        "central": "0.6040",
+                        "high": "0.6289",
+                        "low": "0.5792",
+                        "n": 1485,
+                        "se": "0.0127"
+                    },
+                    "sold_outs": 1485
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 83,
+                    "high": 137,
+                    "low": 27,
+                    "se": 28
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 665,
+                        "high": 688,
+                        "low": 642,
+                        "n": 5695,
+                        "se": 12
+                    },
+                    "restock_rate": {
+                        "central": "0.5719",
+                        "high": "0.5844",
+                        "low": "0.5594",
+                        "n": 6017,
+                        "se": "0.0064"
+                    },
+                    "sold_outs": 6017
+                }
+            },
+            "refund_rate": {
+                "central": "0.0614",
+                "high": "0.0619",
+                "low": "0.0609",
+                "n": 21024,
+                "se": "0.0003"
+            },
+            "unconfounded": {
+                "called": {
+                    "gp_30d_after_pence": {
+                        "central": 687,
+                        "high": 797,
+                        "low": 577,
+                        "n": 381,
+                        "se": 56
+                    },
+                    "restock_rate": {
+                        "central": "0.4373",
+                        "high": "0.4865",
+                        "low": "0.3882",
+                        "n": 391,
+                        "se": "0.0251"
+                    },
+                    "sold_outs": 391
+                },
+                "gp_30d_after_difference_pence": {
+                    "central": 201,
+                    "high": 318,
+                    "low": 83,
+                    "se": 60
+                },
+                "left_alone": {
+                    "gp_30d_after_pence": {
+                        "central": 486,
+                        "high": 528,
+                        "low": 445,
+                        "n": 1612,
+                        "se": 21
+                    },
+                    "restock_rate": {
+                        "central": "0.3544",
+                        "high": "0.3774",
+                        "low": "0.3314",
+                        "n": 1662,
+                        "se": "0.0117"
+                    },
+                    "sold_outs": 1662
+                }
+            }
+        }
+    },
+    "counts": {
+        "activity_duplicate_rows": 532,
+        "activity_rows": 38850,
+        "merchant_months": 54000,
+        "sold_outs": 45536,
+        "sold_outs_with_deal_alert": 29370,
+        "sold_outs_with_schedule": 8034,
+        "sold_outs_without_band": 0
+    },
+    "notes": [
+        "Observational data: called vs left alone is an association, not a causal effect.",
+        "Called means the first call activity carrying the sold_out_id is on or before restocked_date (any date if never restocked): a call after the restock cannot have caused it. Other activity types are ignored.",
+        "Replayed activities (same merchant, sold-out, date, type, owner and duration) only feed the duplicate count: called is a set of sold-outs, so a replay cannot change it.",
+        "The Deal Alert rule does not read alert_type, so in effect it means the automated sold_out alert fired; it drops about 64% of sold-outs from the unconfounded cut.",
+        "Sold-outs and merchant-months of one merchant are treated as independent, so intervals are too narrow.",
+        "Blank gp_30d_after_gbp rows are left out of the GP means but kept in the restock rates.",
+        "Recent sold-outs may not have restocked yet, which lowers their restock rate.",
+        "Intervals are estimate +/- 1.96 standard errors; rates are clipped to [0, 1].",
+        "Refund rate is refunds over GP plus refunds across all of the band's merchant-months.",
+        "Unconfounded drops sold-outs with an active schedule or a Deal Alert send in the 7 days before.",
+        "Not handled yet: blank rep_id, non-rep owner_id, late refunds, CRM migration rows, alerts before Aug 2025."
+    ],
+    "unconfounded_excludes": [
+        "auto_replenish_schedule",
+        "deal_alert_send"
+    ]
+}

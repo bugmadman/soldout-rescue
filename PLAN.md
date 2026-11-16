@@ -2,7 +2,7 @@
 
 Source: [NOTES.md](NOTES.md). Tasks are done in phase order, within a phase — top to bottom. Mark `[x]` as they get done. `3.2` is the task's stable number; ` — reviewed` marks a task whose code the owner has reviewed (see WORKFLOW.md). `[S]`/`[C]` is the task's tier (simple/complex), see CLAUDE.md, "Model selection". Each phase has a minute budget; the time log is in README.md.
 
-Budget: 101 minutes remaining (180 total, 79 used; the time log in README.md is the record). Phase 1 took 26 of 15 minutes. Phases 2–7 plan 120: 19 minutes over, to be cut by the cut order in NOTES.md.
+Budget: 68 minutes remaining (180 total, 112 used; the time log in README.md is the record). Phase 1 took 26 of 15 minutes; phase 2 so far 33 of 20 (tasks 2.1–2.3 done, 2.4–2.6 remain). The rest of phase 2 and phases 3–7 plan far more than 68 minutes: to be cut by the cut order in NOTES.md.
 
 ## Architecture (brief)
 
@@ -31,7 +31,7 @@ Budget: 101 minutes remaining (180 total, 79 used; the time log in README.md is 
 
 - [x] [S] 2.1 Fixture CSVs (invented, tiny) for sold-outs, merchants, activities, schedules, merchant months
 - [x] [C] 2.2 `Money` VO in pence with explicit rounding, tested
-- [ ] [C] 2.3 Historical estimates from the data pack (restock rate called vs. left alone by size band, GP after, refund rate), computed by a script, written to a small committed JSON of parameters, not the raw data
+- [x] [C] 2.3 Historical estimates from the data pack (restock rate called vs. left alone by size band, GP after, refund rate), computed by a script, written to a small committed JSON of parameters, not the raw data
 - [ ] [C] 2.4 `ChaseValue` calculation: GP of a cap raise minus rep time minus refund risk, as a low / central / high range, all parameters named, tested on edge cases
 - [ ] [C] 2.5 Handling of the data traps: dedupe replayed activities, blank `rep_id`, an `owner_id` that is not a rep, blank 30-day GP, refunds arriving after the 30-day window, schedule coverage by `deal_id` and date, Deal Alert sends existing only from August 2025, a check of the rows around the early-2026 CRM migration
 - [ ] [S] 2.6 Priya's answer to the 0.5 message recorded in NOTES.md, never assumed; until she answers the rate per rep hour stays a named parameter with a stated default

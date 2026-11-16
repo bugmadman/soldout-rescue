@@ -2,7 +2,7 @@
 
 A mobile tool that shows reps today's sold-out deals with a call / don't-call recommendation and an amount in £. Money is computed in code, free text is read by an LLM with quotes, and a safe switch is added to the routing service. The effect is proven with a holdout.
 
-Status: setup only. Nothing is built yet. This file is a stub and will be filled in later (how to run, what was decided, what it can't do, what was cut and why, where AI is used).
+Status: skeleton done, money model in progress (tasks 2.1–2.3 written). This file is a stub and will be filled in later (how to run, what was decided, what it can't do, what was cut and why, where AI is used).
 
 ## Time spent
 
@@ -15,8 +15,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Process and plan: rules, workflow, agents, notes, phased plan, Bootstrap decision (time is the owner's estimate, start and end not recorded) | – | – | – | 15 |
 | Plan audit: plan checked against the brief, carried-over wording removed, open questions listed, notes and plan updated (time is the owner's estimate, start and end not recorded) | – | – | – | 10 |
 | Phase 1, skeleton: Docker, Makefile, Symfony 7.4 with FrankenPHP worker mode, PHPUnit, PHPStan, PHP-CS-Fixer, check from a clean clone (start is estimated from the last commit; the break is the owner's estimate) | 2026-11-16 13:15 | 2026-11-16 13:43 | 2 | 26 |
-| **Total used** | | | | **79 of 180** |
-| **Remaining** | | | | **101** |
+| Phase 2, money model so far: fixtures, `Money` value object, historical estimates, each with a review by a second agent (time is the owner's estimate of 30–35 minutes, 33 recorded; start and end not recorded; tasks 2.4–2.6 remain) | – | – | – | 33 |
+| **Total used** | | | | **112 of 180** |
+| **Remaining** | | | | **68** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.
@@ -38,6 +39,18 @@ Notes:
 ```
 
 `docs/` holds the working brief and the data pack. It is not committed.
+
+## Review status
+
+Time is very tight, so the code has not been fully reviewed by a human. The owner checked each step's result, not the code line by line. Every complex task was written by one agent and reviewed by another, and `make lint` (style, PHPStan strict, tests) passes, but that is not a human review. Treat the code as reviewed by tools and a second model only.
+
+## Tech debt
+
+Left on purpose because of the time box; the code works and is tested, but breaks two project rules:
+
+- Task 2.3 passes bare `list<…>` between areas (`HistoricalRecords`, `HistoricalEstimates`) instead of `final readonly` collection classes.
+- Layers are tangled in task 2.3: `HistoricalEstimator` (Domain) imports `DataPackDirectory` from Infrastructure, and Infrastructure imports Domain records. The reader interface should live in Infrastructure next to its implementation, with Domain depending only on the interface and DTOs.
+- The historical estimates compare "called" and "left alone" by the first-call-before-restock rule, not over one fixed window; see `NOTES.md` for the bias.
 
 ## Known issues
 

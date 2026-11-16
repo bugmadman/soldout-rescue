@@ -12,7 +12,7 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 
 ## Time
 
-- Total budget 180 minutes of active working time; 79 used through phase 1, 101 remaining. Minute budgets per phase are in PLAN.md. The time table in README.md is the single record.
+- Total budget 180 minutes of active working time; 112 used (phase 1 and 33 minutes of phase 2), 68 remaining. Minute budgets per phase are in PLAN.md. The time table in README.md is the single record.
 - Two deadlines from the brief: 48 hours from first opening the Desk, and Thursday 09:00 on the team's clock. The team's day and time come from `GET /me`, not from the real calendar.
 - Cut order when behind (first cut goes first): hosting a public link; the merchant-mark mirror in the DB; text sources other than rep notes and Deal Alert replies; the quality of the tool's styling.
 - Never cut: money in code with tests; quote verification; the routing switch with tests and rollback; the holdout read-out script; the README cut list; the three lines for Dan and the change request for Greg.
@@ -35,6 +35,11 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - Inputs come from history in the data pack: restock rates after a call vs. none by size band, GP in the 30 days after, the merchant's refund rate in `merchant_months.csv`, and whether a schedule or Deal Alert already covered the case.
 - The model reports a range (low / central / high), not one number, because the data is observational.
 - Data traps to handle: replayed CRM activity rows (dedupe), blank `rep_id` before 2025, `gp_30d_after_gbp` blank for October 2026, refunds arriving later than the 30-day window, schedules joining on `deal_id` and date only, an `owner_id` in activities that is not a rep, Deal Alert sends existing only from August 2025, the early-2026 CRM migration that nobody has checked.
+- Historical estimates (task 2.3, `config/historical_estimates.json`, per size band, aggregates only). "Called" means the first deduplicated call on the sold-out is on or before `restocked_date` (any call if never restocked), because a later call cannot have caused the restock. Findings on real data, all cut, GP difference per called sold-out in pence: A 496 [299, 692], B 208 [104, 314], C 30 [-51, 111], D 83 [27, 137]. Priya's £11 is 1100.
+- Reading the estimates: they are observational. In A, B and C called sold-outs restock less often than left-alone ones yet earn more GP, so reps choose whom to call and the numbers are not the effect of a call. The restock-rate gap is not used as an uplift; the GP difference is the input for 2.4, as a range.
+- Known bias of the "called" definition: sold-outs that restock quickly have little time to be called first, so they land in "left alone" and raise its restock rate. A fairer comparison would use one fixed window after the sold-out for both groups; not done, see the Inbox.
+- The "unconfounded" cut (no active schedule, no Deal Alert send from 7 days before the sold-out) drops about 70% of sold-outs, 64% of them because of Deal Alert alone. `alert_type` is not read, so the cut effectively means "the automated sold-out alert fired". Sends exist only from August 2025, so the cut leans towards older sold-outs; task 2.5 looks at it.
+- Intervals are Wald approximations and treat a merchant's sold-outs and months as independent, so they are too narrow, the refund rate most of all.
 
 ## Text analysis (LLM)
 
@@ -80,6 +85,7 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - Asking Priya whether she has auto-replenish and Deal Alert data: dropped. Both files are in the data pack and belong to Merchant Ops.
 - Assuming the day from the real calendar and the real number only after 7 January: dropped. The brief gives no date; the team's clock decides.
 - Messages to Greg, Hana and Priya at the end of their phases: superseded. Answers take time, so they go first (PLAN 0.5).
+- Collection classes and the Domain/Infrastructure layering in task 2.3: not fixed, cut for time. It works and is tested, but breaks two rules in AGENTS.md; recorded as tech debt in the README. New code from 2.4 on follows the rules from the start.
 
 ## Inbox
 
@@ -94,5 +100,6 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - Open: did the early-2026 CRM migration leave anything strange, and what is an `owner_id` that is not a rep? Ask Priya and Hana.
 - Open: host the tool behind a link, or hand in the one-command run and screenshots?
 - Open: which model and how many merchants for the LLM run (about a cent per merchant on Sonnet, USD 20 in total); decided at PLAN 4.2.
-- Open: phases 2–7 plan 120 minutes against 101 remaining. What is cut to cover the 19 minutes?
+- Open: the rest of phase 2 and phases 3–7 plan more than the 68 minutes that remain. What is cut?
 - Open: Renee covers only North H&B. Is a second rep (Marcus?) asked about another book?
+- Open: compare called and left-alone sold-outs over one fixed window after the sold-out instead of the first-call-before-restock rule, to remove the bias towards "left alone"? Decide before 2.4 uses the numbers.
