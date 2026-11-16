@@ -9,7 +9,7 @@ Status: skeleton, historical estimates (2.1–2.3), the routing switch (5.1–5.
 Cut for time, with the reason; each is a known gap, not a hidden one.
 
 - **No functional test of the controller.** AGENTS.md asks for one with the service mocked; the page was checked by hand, and the service and the CSV adapter have unit tests.
-- **No access-token check (3.6).** The page is open to anyone who can reach the address and shows real merchant names, cities and deal ids from the data pack. Run it only locally; do not expose the port.
+- **Basic auth over plain HTTP (3.6).** Every route asks for the login and password from `.env.local`, but the container serves HTTP without TLS, so the password is readable on the wire. Run it locally or behind an HTTPS proxy; the page shows real merchant names, cities and deal ids from the data pack.
 - **No detail view (part of 3.4).** The page is a list only: no per-merchant evidence screen.
 - **Refund risk is not in the formula.** The net value of a call is the historical GP difference per size band minus rep time (12 minutes at £20 an hour, £4). The refund-risk term from NOTES.md is not subtracted.
 - **Estimates are per size band, not per merchant.** Every card of one band shows the same amount. The numbers are observational, not a causal effect; the holdout is meant to replace them.
@@ -33,8 +33,9 @@ Budget: 3 hours of work. Active working time, timestamps in CET, updated at each
 | Phase 5, task 5.9: one message to Hana asking for a diff-review slot, drafted and sent by the owner (time is the owner's estimate, start and end not recorded) | – | – | – | 2 |
 | Phase 5 and 6, tasks 5.1–5.3 (routing switch and tests) and 6.1, 6.4 (holdout assignment and list export), each with a review by a second agent (about 36 minutes elapsed, of which the owner was away for 10; the owner's estimate of 25 minutes is recorded; start and end not recorded) | – | – | 10 | 25 |
 | Phase 3, tasks 3.1, 3.3, 3.4 (reduced): sandbox port with a CSV adapter, sold-out service with the net-value range, mobile page; each `[C]` task written by one agent and reviewed by another (the assistant's estimate of about 25 minutes; start and end not recorded) | – | – | – | 25 |
-| **Total used** | | | | **164 of 180** |
-| **Remaining** | | | | **16** |
+| Phase 3, task 3.6: HTTP Basic auth on every route with the login and password from `.env.local`, written by one agent and reviewed by another, then the notes, the time log and the commit (the assistant's estimate; start and end not recorded) | – | – | – | 8 |
+| **Total used** | | | | **172 of 180** |
+| **Remaining** | | | | **8** |
 
 Notes:
 - Time is active working time. Each phase is the span between its start and end, and any break (a stopped session, waiting for material, a pause between days) is subtracted and noted in the Breaks column. Start and end carry the date.

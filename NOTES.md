@@ -26,7 +26,7 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - PostgreSQL holds only what the sandbox does not: cached LLM findings (with quotes and the source reference), holdout assignments, computed recommendations for the day. Merchants, deals, sold-outs and marks are read from and written to the sandbox API through a port, not copied.
 - The same port has a second adapter that reads CSV files from a data-pack directory. The hand-in rules say a facilitator may run the tests and the detector offline, from a file, on data we have not seen; so the verdicts and the suppression list can be produced without the network and without the key.
 - Domain areas under `src/Domain/`: `SoldOut` (recommendation, rules), `Money` (the model), `TextSignal` (findings, quote verification), `Holdout` (assignment). Adapters under `src/Infrastructure/`: `Sandbox` (HTTP client), `Llm` (gateway client).
-- Access to the tool: a single shared access token from `.env.local`, checked by a Symfony security listener; no user accounts. The token carries no rep, so the rep is selected in the tool and that rep id goes into `marked_by`. Only a rep-facing page and a mark form are exposed.
+- Access to the tool: HTTP Basic auth with one shared login and password from `.env.local` (`BASIC_AUTH_USER`, `BASIC_AUTH_PASSWORD`), checked by a request subscriber on every route; no user accounts. The shared login carries no rep, so the rep is selected in the tool and that rep id goes into `marked_by`. Only a rep-facing page and a mark form are exposed.
 - Front end: Twig pages styled with Bootstrap 5, loaded from a CDN with a pinned exact version and SRI hashes, mobile-first (viewport meta, single-column cards). No asset build step. Cost: the page needs internet to be styled; acceptable for a rep tool, and the PHP tests never load it.
 
 ## Money model
@@ -100,6 +100,7 @@ Facts as said in chat; the decisions that follow are in the sections above.
 - Public hosting: first candidate for cutting. The README will say how to run it with one command.
 - Using Priya's £11 as the amount: rejected, see Product; the brief itself says to prove the effect with a holdout rather than trust the £11. Priya has been told why and has answered; her data is treated as sound.
 - The sandbox API as the only data source: superseded. The offline run from files needs a CSV adapter behind the same port, see Architecture.
+- A shared access token checked by a Symfony security listener: replaced by Basic auth in a plain request subscriber, which needs no security bundle and works in any browser without a token field. The container serves plain HTTP, so the password is safe only behind TLS or on localhost.
 - `marked_by` taken from the access token: superseded. One shared token carries no rep.
 - Asking Priya whether she has auto-replenish and Deal Alert data: dropped. Both files are in the data pack and belong to Merchant Ops.
 - Assuming the day from the real calendar and the real number only after 7 January: dropped. The brief gives no date; the team's clock decides.

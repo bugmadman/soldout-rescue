@@ -20,3 +20,8 @@ services:
 
     App\Domain\SoldOut\CallGainEstimates:
         factory: ['@App\Infrastructure\Estimates\HistoricalEstimatesFile', 'callGainEstimates']
+
+    App\EventSubscriber\BasicAuthSubscriber:
+        arguments:
+            $user: '%env(BASIC_AUTH_USER)%'
+            $password: '%env(BASIC_AUTH_PASSWORD)%'
