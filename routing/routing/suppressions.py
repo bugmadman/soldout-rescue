@@ -1,7 +1,8 @@
 """Sold-out suppression list: deals or merchants whose sold-outs should not become rep tasks.
 
 Agreed shape (Ops, October): one row per deal or merchant, read at start of run, only
-when `suppress_soldout_tasks` is on in config. plan.py does not use it yet.
+when `suppress_soldout_tasks` is on in config. plan.py drops the matching restock tasks;
+promised callbacks are never dropped by it.
 """
 import csv
 from pathlib import Path
@@ -19,13 +20,14 @@ def load_suppressions(path=None):
     path = Path(path) if path else ROOT / "input" / "suppressions.csv"
     if not path.exists():
         return []
-    with open(path, newline="") as f:
+    with open(path, newline="", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         missing = [c for c in ("deal_id", "merchant_id") if c not in (reader.fieldnames or [])]
         if missing:
             raise ValueError(f"{path.name}: missing column(s) {', '.join(missing)}")
         rows = []
         for n, row in enumerate(reader, start=2):
+            row = {k: (v or "").strip() for k, v in row.items() if k is not None}
             if not (row["deal_id"] or row["merchant_id"]):
                 raise ValueError(f"{path.name} line {n}: needs a deal_id or a merchant_id")
             rows.append(row)

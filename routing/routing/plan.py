@@ -4,6 +4,8 @@ import json
 import sys
 from pathlib import Path
 
+from routing.suppressions import load_suppressions
+
 ROOT = Path(__file__).resolve().parent.parent
 
 # Used when a key is missing from config/routing.json.
@@ -49,14 +51,27 @@ def is_active(row, config):
     return True
 
 
+def load_soldout_suppression(config):
+    """(deal ids, merchant ids) from the suppression file; both empty, file unread, with the switch off."""
+    # `is True`: a string like "false" in an override must not switch suppression on.
+    if config.get("suppress_soldout_tasks") is not True:
+        return set(), set()
+    rows = load_suppressions(ROOT / config.get("suppression_file", DEFAULTS["suppression_file"]))
+    deals = {r["deal_id"] for r in rows if r["deal_id"]}
+    merchants = {r["merchant_id"] for r in rows if not r["deal_id"]}
+    return deals, merchants
+
+
 def build_plan(rows, priors=None, config=None):
     """Return (today's list, carried over). Each item is a dict with task and rank details."""
     priors = priors or load_priors()
     config = config or load_config()
+    suppressed_deals, suppressed_merchants = load_soldout_suppression(config)
     active = [r for r in rows if is_active(r, config)]
     promised = [r for r in active if r["callback_promised"] == "1"]
     rest = [r for r in active
-            if r["callback_promised"] != "1" and int(r["failed_attempts"]) < config["max_failed_attempts"]]
+            if r["callback_promised"] != "1" and int(r["failed_attempts"]) < config["max_failed_attempts"]
+            and r["deal_id"] not in suppressed_deals and r["merchant_id"] not in suppressed_merchants]
     rest.sort(key=lambda r: expected_gp(r, priors), reverse=True)
 
     today, carried, minutes = [], [], 0

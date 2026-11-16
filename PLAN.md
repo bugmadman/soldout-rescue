@@ -50,7 +50,7 @@ A proposed order for the next session. Nothing starts until the owner asks for i
 
 Moved forward so that the change can reach Greg: Friday's gate takes only what he has already discussed (he does, since 11:34) and wants the page by Thursday morning; today's 15:00 review is reachable only with a diff that Hana has reviewed. The next window after that is after the freeze ends on 7 January. Order of work is in "Next steps": 5.9, 5.1–5.3, then 6.1 and 6.4, then 5.4 and 5.6, then 5.7.
 
-- [ ] [S] 5.1 Read the routing README and tests; run them green before any change
+- [x] [S] 5.1 Read the routing README and tests; run them green before any change
 - [ ] [C] 5.2 Act on `suppress_soldout_tasks` and `input/suppressions.csv`: skip listed deals when the switch is on; off by default; the routing README and version updated
 - [ ] [C] 5.3 Tests: switch off changes nothing; on drops only listed items; rollback restores today's output exactly; override precedence
 - [ ] [S] 5.4 Decide `env_overrides.json` with Hana (she has not answered it, ask it with the 5.6 message) and write the decision down
