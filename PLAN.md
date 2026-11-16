@@ -52,7 +52,7 @@ Moved forward so that the change can reach Greg: Friday's gate takes only what h
 
 - [x] [S] 5.1 Read the routing README and tests; run them green before any change
 - [ ] [C] 5.2 Act on `suppress_soldout_tasks` and `input/suppressions.csv`: skip listed deals when the switch is on; off by default; the routing README and version updated
-- [ ] [C] 5.3 Tests: switch off changes nothing; on drops only listed items; rollback restores today's output exactly; override precedence
+- [x] [C] 5.3 Tests: switch off changes nothing; on drops only listed items; rollback restores today's output exactly; override precedence
 - [ ] [S] 5.4 Decide `env_overrides.json` with Hana (she has not answered it, ask it with the 5.6 message) and write the decision down
 - [ ] [S] 5.6 Diff sent to Hana for review once a slot is agreed (5.9); she reads code and offers a 15-minute pairing. Greg's written OK is recorded when it comes, never assumed
 - [ ] [S] 5.7 One-page change request for Greg, by Thursday morning for Friday's gate (and before today's 15:00 review if a Hana-reviewed diff exists), not claiming that Hana has seen it before she has: the change, risk, rollback, when to stop. It says: the suppression file is keyed by `deal_id` and is config under the freeze, and the list is static until 7 January (a change is a signed emergency); the two halves, deals covered by automation (accepted in principle) and "call isn't wanted" (he judges on the page; automation half only if the text analysis is not ready), with a `reason` per row so the second half can be struck; whether the switch goes on before Monday or stays off until 7 January. Sent to Greg in chat as well, the Submit panel does not deliver it to him
