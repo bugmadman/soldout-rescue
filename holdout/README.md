@@ -26,6 +26,16 @@ The salt is the content of the salt file with surrounding whitespace removed; `d
 - Output: `--out` gets `deal_id,group,assigned_on`, where `group` is `held_out` or `suppressed` and `assigned_on` is the run date. An existing output file is never overwritten. The params are written before the output; if the output cannot be written, the partial output and any params created by that run are removed.
 - The share used and the number of deals in each group go to stderr.
 
+## The suppression list export
+
+```
+python3 -m holdout.export_list candidates <auto_replenish_schedules.csv> --on YYYY-MM-DD --out candidates.csv
+python3 -m holdout.assign candidates.csv --out assignments.csv
+python3 -m holdout.export_list suppressions candidates.csv assignments.csv --on YYYY-MM-DD --out suppressions.csv
+```
+
+`candidates` keeps the deals with a schedule active on the date (`start_date <= date`, `end_date` empty or `>= date`): a snapshot, so schedules created or ended later do not change the list. `suppressions` drops the held-out deals and writes the routing layout (`deal_id,merchant_id,reason,source,added_on`; `reason` is `auto_replenish_active`). The list is keyed by `deal_id`, so every future sold-out of a listed deal is suppressed. A candidate without an assignment is an error, and an existing output file is never overwritten. The "call is not wanted" half is added as rows with their own `reason` once the text analysis exists.
+
 ## Rules
 
 - The assignment is written once, before the list is built and before any outcome is known, and never changes afterwards: the list is static until 7 January.

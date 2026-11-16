@@ -44,6 +44,12 @@ PS. A softer point about the time log: the time spent writing the instructions f
 
 `docs/` holds the working brief and the data pack. It is not committed.
 
+## Decisions and why
+
+- **Holdout share 0.2.** The held-out deals are the control group: they keep their restock tasks, so the share is the price of the proof. A larger share would give a tighter comparison but would leave more rep time spent on deals the automation already covers; a smaller one would leave too few deals to see a difference. A dry run on the schedule data gave 306 held-out of 1,536 candidate deals, and a deal sells out about six times on average, so the control has many sold-outs. This is a judgment call, not a power calculation (no time for one). It is fixed once: the tool records the share next to the salt and refuses to run again with another share.
+- **The export date is a parameter, not a constant.** The list is a snapshot of the schedules active on the date given with `--on`, built once before Friday's gate and unchanged until 7 January. The real date is the day the list is built; 11 November was used only for a dry run. Schedules created or ended later are not reflected until the freeze ends, which is why the date is stated with the list.
+- **The list is keyed by `deal_id`.** One deal sells out about six times in the data (6,593 of 6,640 deals more than once), so a listed deal is suppressed for every future sold-out, which is what routing matches on.
+
 ## Review status
 
 Time is very tight, so the code has not been fully reviewed by a human. The owner checked each step's result, not the code line by line. Every complex task was written by one agent and reviewed by another, and `make lint` (style, PHPStan strict, tests) passes, but that is not a human review. Treat the code as reviewed by tools and a second model only.

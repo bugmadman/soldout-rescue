@@ -73,6 +73,8 @@ Current project decisions, grouped by topic. Each item is the final decision (wi
 - The read-out script reads two files (assignments, outcomes) and prints the difference in GP with a bootstrap interval, offline, from a file. Sample fixtures included.
 - The range given to Dan now comes from the money model and the historical data; the real number comes after the first 30-day outcomes. The date is stated honestly: 30 days after the switch goes on. Whether that is before the freeze or after 7 January depends on when the switch goes on (open), so both dates are given.
 
+- Decided with the owner: the holdout share is 0.2 (the held-out deals keep their tasks, so the share is the price of the proof; too small a control shows nothing, too large wastes the saving; no power calculation, fixed once and enforced by the tool). The export date is a parameter (`--on`): the real date is the day the list is built before Friday's gate, 11 November was only a dry run (1,536 candidate deals, 306 held out). A deal sells out about six times (6,593 of 6,640 deals more than once), so a deal-level list suppresses every later sold-out of a listed deal.
+
 ## Colleague answers
 
 Facts as said in chat; the decisions that follow are in the sections above.
@@ -113,7 +115,6 @@ Facts as said in chat; the decisions that follow are in the sections above.
 - Does the switch go on before Monday, or stay off until 7 January? Turning it on is itself a config change under the freeze. It goes into the change request (PLAN 5.7), and the date of the real number depends on it.
 - `env_overrides.json`: keep, remove or fix? Hana did not answer; ask it with the diff (PLAN 5.4).
 - Is the "call isn't wanted" half of the list ready for Friday's gate, or does the list go as the automation half only? Decided when phase 4 shows what it can deliver (PLAN 6.4).
-- How many deals have an active auto-replenish schedule, and does one deal sell out more than once (ids like `D10001-2`)? Checked before the deal-level holdout and the export (PLAN 6.1, 6.4).
 - Did the early-2026 CRM migration leave anything strange, and does the sandbox API show a non-rep `owner_id`? Nobody knows; check the rows around the migration and a small sample of merchants through `GET /activities?merchant_id=` (PLAN 2.5). Ask Sales Ops only if non-rep owners turn up.
 - Activity dedupe key: the date plus the other fields, checked by activity type before relying on it (PLAN 2.5).
 - Should the holdout read-out read the real sandbox, or only files? Leaning files only, so it runs offline.
